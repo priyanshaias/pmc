@@ -2,26 +2,172 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Postings</title>
 <style>
-  body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; margin-top: 60px; }
-  h1 { margin-bottom: 10px; }
-  h2 { margin-top: 40px; }
-  a.button { display: block; margin: 12px; padding: 14px 28px; background: #2563eb; color: #fff; text-decoration: none; border-radius: 6px; font-size: 18px; }
-  a.button:hover { background: #1d4ed8; }
+  :root {
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --border: #e2e6ef;
+    --text: #1a2233;
+    --muted: #667085;
+    --accent: #2563eb;
+    --accent-dark: #1d4ed8;
+    --v1: #6b7280;
+    --v2: #0891b2;
+    --v3: #7c3aed;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    padding: 56px 24px 80px;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 48px; }
+  header h1 { font-size: 32px; margin: 0 0 8px; letter-spacing: -0.02em; }
+  header p { color: var(--muted); margin: 0; font-size: 16px; }
+
+  .version-section { margin-bottom: 40px; }
+  .version-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .version-badge {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+  }
+  .v1 .version-badge { background: var(--v1); }
+  .v2 .version-badge { background: var(--v2); }
+  .v3 .version-badge { background: var(--v3); }
+  .version-header .version-label { font-size: 14px; color: var(--muted); }
+  .version-header .version-latest {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--v3);
+    background: #f1e9fe;
+    padding: 3px 9px;
+    border-radius: 999px;
+    letter-spacing: 0.03em;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 24, 40, 0.08);
+    border-color: var(--accent);
+  }
+  .card .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .card .card-arrow {
+    align-self: flex-end;
+    color: var(--accent);
+    font-size: 18px;
+  }
+
+  .v1 .card:hover { border-color: var(--v1); }
+  .v1 .card:hover .card-arrow { color: var(--v1); }
+  .v2 .card:hover { border-color: var(--v2); }
+  .v2 .card:hover .card-arrow { color: var(--v2); }
+  .v3 .card:hover { border-color: var(--v3); }
+  .v3 .card:hover .card-arrow { color: var(--v3); }
+
+  .v3 .card-grid { grid-template-columns: 1fr; }
+  .v3 .card { padding: 24px; }
 </style>
 </head>
 <body>
-  <h1>Postings</h1>
+  <div class="wrap">
+    <header>
+      <h1>Postings Dashboards</h1>
+      <p>Select a version to open the posting dashboard</p>
+    </header>
 
-  <h2>V1</h2>
-  <a class="button" href="Forest_Ranger_Posting_Dashboard.html">Forest Ranger Posting Dashboard</a>
-  <a class="button" href="Deputy_Forest_Ranger_Posting_Dashboard.html">Deputy Forest Ranger Posting Dashboard</a>
-  <a class="button" href="Forest_Guard_Posting_Dashboard.html">Forest Guard Posting Dashboard</a>
+    <section class="version-section v3">
+      <div class="version-header">
+        <span class="version-badge">V3</span>
+        <span class="version-label">Combined directorate dashboard</span>
+        <span class="version-latest">LATEST</span>
+      </div>
+      <div class="card-grid">
+        <a class="card" href="v3/Forest_Staff_Posting_Dashboard_V3.html">
+          <div>
+            <div class="card-title">Directorate Forest Staff Posting Dashboard</div>
+          </div>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+      </div>
+    </section>
 
-  <h2>V2</h2>
-  <a class="button" href="v2/Forest_Ranger_Posting_Dashboard-2.html">Forest Ranger Posting Dashboard</a>
-  <a class="button" href="v2/Deputy_Forest_Ranger_Posting_Dashboard-2.html">Deputy Forest Ranger Posting Dashboard</a>
-  <a class="button" href="v2/Forest_Guard_Posting_Dashboard-2.html">Forest Guard Posting Dashboard</a>
+    <section class="version-section v2">
+      <div class="version-header">
+        <span class="version-badge">V2</span>
+        <span class="version-label">Per-cadre dashboards</span>
+      </div>
+      <div class="card-grid">
+        <a class="card" href="v2/Forest_Ranger_Posting_Dashboard-2.html">
+          <div><div class="card-title">Forest Ranger</div></div>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+        <a class="card" href="v2/Deputy_Forest_Ranger_Posting_Dashboard-2.html">
+          <div><div class="card-title">Deputy Forest Ranger</div></div>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+        <a class="card" href="v2/Forest_Guard_Posting_Dashboard-2.html">
+          <div><div class="card-title">Forest Guard</div></div>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="version-section v1">
+      <div class="version-header">
+        <span class="version-badge">V1</span>
+        <span class="version-label">Per-cadre dashboards</span>
+      </div>
+      <div class="card-grid">
+        <a class="card" href="Forest_Ranger_Posting_Dashboard.html">
+          <div><div class="card-title">Forest Ranger</div></div>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+        <a class="card" href="Deputy_Forest_Ranger_Posting_Dashboard.html">
+          <div><div class="card-title">Deputy Forest Ranger</div></div>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+        <a class="card" href="Forest_Guard_Posting_Dashboard.html">
+          <div><div class="card-title">Forest Guard</div></div>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
