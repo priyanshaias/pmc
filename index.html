@@ -102,6 +102,22 @@
 
   .v3 .card-grid { grid-template-columns: 1fr; }
   .v3 .card { padding: 24px; }
+  .feature-list {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .feature-list li {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--v3);
+    background: #f1e9fe;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
 </style>
 </head>
 <body>
@@ -121,6 +137,11 @@
         <a class="card" href="v3/Forest_Staff_Posting_Dashboard_V3.html">
           <div>
             <div class="card-title">Directorate Forest Staff Posting Dashboard</div>
+            <ul class="feature-list">
+              <li>Unified register for Forest Ranger, Deputy Forest Ranger &amp; Forest Guard</li>
+              <li>PDF download</li>
+              <li>Print of filtered view</li>
+            </ul>
           </div>
           <span class="card-arrow">&rarr;</span>
         </a>
